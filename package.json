@@ -20,11 +20,17 @@
   },
   "homepage": "https://github.com/R-Santev/GoStartups_firstDemo#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "handlebars": "^4.7.6",
+    "mongoose": "^5.11.15",
+    "ws": "^7.4.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
+    "@types/express-handlebars": "^3.1.0",
     "@types/node": "^14.14.25",
+    "@types/ws": "^7.4.0",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
