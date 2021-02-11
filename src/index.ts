@@ -2,24 +2,11 @@ import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
 import WebSocket = require('ws');
-import handlebars from 'express-handlebars';
+
 import {Block} from './models/Block';
 const PORT = 8000;
 
 const app = express();
-
-app.engine('hbs', handlebars({
-  extname: 'hbs',
-  defaultLayout: 'main', 
-  layoutsDir:'src/views/layouts',
-  partialsDir:'src/views/partials'
-}))
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname + '/views'));
-
-app.use(express.urlencoded({extended: true}));
-
-
     
 mongoose.connect('mongodb://localhost/cubicle', {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
@@ -48,13 +35,6 @@ ws.on('message', (message: WebSocket.Data ) => {
     .catch((err) => console.log(err));
     
 });
-
-app.get('/', async (req,res) => {
-  let blocks = await Block.find().lean();
-
-  res.render('home', {title: 'Home', blocks});
-});
-
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
