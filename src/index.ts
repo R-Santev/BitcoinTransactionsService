@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import * as wsService from './services/webSocketService';
+import { WebSocketService } from './services/webSocketService';
 
 const PORT = 8000;
 const app = express();
@@ -15,8 +15,10 @@ db.on('error', (err) => console.log(err));
 db.on('open', () => {
   console.log('DB connected!');
 });
+console.log(WebSocketService);
 
-wsService.connectWebSocket();
+const webSocketService = WebSocketService.getInstance();
+webSocketService.connectWebSocket();
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
