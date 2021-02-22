@@ -4,8 +4,6 @@ import WebSocket = require('ws');
 import { ITransaction, Transaction } from '../models/Transaction';
 import { Block } from '../models/Block';
 
-console.log('OP');
-
 export class WebSocketService {
     
     private static instance: WebSocketService;
