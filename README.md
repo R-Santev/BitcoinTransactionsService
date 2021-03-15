@@ -1,2 +1,1 @@
-# GoStartups_firstDemo
- My first demo project for GoStartups
+# Transactions Service for Bitcoin blockchain
